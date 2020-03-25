@@ -11,7 +11,7 @@ import Singapore from "../../assets/svg/icon/singapore.svg";
 import Sweden from "../../assets/svg/icon/sweden.svg";
 import Uk from "../../assets/svg/icon/uk.svg";
 import Unchecked from "../../assets/svg/icon/unchecked.svg";
-import Us from "../../assets/svg/us.svg";
+import Us from "../../assets/svg/icon/us.svg";
 
 export const icons = {
   //buttons
