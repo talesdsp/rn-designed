@@ -1,82 +1,88 @@
+import { Block, Button, Text } from "expo-ui-kit/src";
+import { COLORS, SIZES } from "expo-ui-kit/src/theme";
+import { rgba } from "expo-ui-kit/src/utils";
 import React from "react";
-import { Image } from "react-native";
+import { StyleSheet } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import Block from "../components/Block";
-import Text from "../components/Text";
-import { images, theme } from "../constants/";
-
-const { background } = images;
-const { COLORS, SIZES } = theme;
+import { background } from "../constants/Images";
+import Theme from "../constants/Theme";
 
 const backgrounds = [
   {
+    id: 1,
     title: "Secured, forever.",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius omnis molestiae sed fuga est commodi voluptatibus perferendis debitis nemo labore.",
-    img: background.image,
+    img: (props) => background.welcome(props),
   },
   {
-    title: "Secured, forever.",
+    id: 2,
+    title: "Tracking? No more.",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius omnis molestiae sed fuga est commodi voluptatibus perferendis debitis nemo labore.",
-    img: background.image,
+    img: (props) => background.umbrella(props),
   },
   {
-    title: "Secured, forever.",
+    id: 3,
+    title: "The web guard you ever wanted",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius omnis molestiae sed fuga est commodi voluptatibus perferendis debitis nemo labore.",
-    img: background.image,
+    img: (props) => background.guard(props),
   },
 ];
 
 export default function Welcome({ navigation }) {
-  const renderImages = () => (
-    <ScrollView
-      horizontal
-      pagingEnabled
-      scrollEnabled
-      decelerationRate={0}
-      scrollEventThrottle={16}
-      snapToAlignment="center"
-      showsHorizontalScrollIndicator={false}
-    >
-      {backgrounds.map((item, index) => (
-        <Block key={`img-${index}`} center bottom style={{ width: SIZES.width }}>
-          <Image source={item.img} resizeMode="center" style={{ width: "75%", height: "100%" }} />
-        </Block>
-      ))}
-    </ScrollView>
-  );
+  const renderImages = () => {
+    return (
+      <ScrollView
+        horizontal
+        pagingEnabled
+        scrollEnabled
+        decelerationRate={0}
+        scrollEventThrottle={16}
+        snapToAlignment="center"
+        showsHorizontalScrollIndicator={false}
+      >
+        {backgrounds.map((item, index) => (
+          <Block key={`img-${index}`} center bottom style={{ width: SIZES.width }}>
+            {item.img({ width: SIZES.width, height: SIZES.width })}
+            <Text h3 semibold padding={[13, 0, 0, 0]}>
+              {item.title}
+            </Text>
+            <Text h3 semibold center caption gray margin={[13, SIZES.padding, 0]}>
+              {item.description}
+            </Text>
+          </Block>
+        ))}
+      </ScrollView>
+    );
+  };
 
-  const renderDots = () => (
-    <Block flex={false} row center middle margin={[20, 0, 40, 0]}>
-      {[...Array(3)].map((_, index) => (
-        <Block
-          key={`dot-${index}`}
-          flex={false}
-          gray
-          margin={[0, 5]}
-          radius={3}
-          style={{ width: 8, height: 8 }}
-          color={rgba(COLORS.gray, 0.5)}
-        />
-      ))}
-    </Block>
-  );
+  const renderDots = () => {
+    return (
+      <Block flex={false} row center middle margin={[21, 0, 34, 0]}>
+        {[...Array(3)].map((_, index) => (
+          <Block
+            key={`dot-${index}`}
+            flex={false}
+            gray
+            margin={[0, 5]}
+            radius={3}
+            style={{ width: 8, height: 8 }}
+            color={rgba(COLORS.gray, 0.2)}
+          />
+        ))}
+      </Block>
+    );
+  };
 
   return (
     <Block safe>
-      <Block center middle>
-        {renderImages()}
-      </Block>
-      <Block flex={0} center bottom margin={60}>
-        <Text h3 semibold></Text>
-        <Text h3 semibold center caption gray margin={[10, 0]}></Text>
-
+      <Block>{renderImages()}</Block>
+      <Block flex={false} center bottom margin={[0, 0, 55, 0]}>
         {renderDots()}
-
-        <Button primary onPress={() => navigation.navigate("VPN")}>
-          <Text center white caption bold margin={[5, 21]}>
+        <Button primary theme={Theme} onPress={() => navigation.navigate("VPN")}>
+          <Text center white caption bold margin={[5, 55]}>
             GET STARTED
           </Text>
         </Button>
