@@ -1,8 +1,7 @@
 import { Block, Button, Text } from "expo-ui-kit/src";
 import { COLORS, SIZES } from "expo-ui-kit/src/theme";
-import { rgba } from "expo-ui-kit/src/utils";
 import React from "react";
-import { StyleSheet } from "react-native";
+import { Animated, StyleSheet } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { background } from "../constants/Images";
 import Theme from "../constants/Theme";
@@ -32,16 +31,18 @@ const backgrounds = [
 ];
 
 export default function Welcome({ navigation }) {
+  scrollX = new Animated.Value(0);
+
   const renderImages = () => {
     return (
       <ScrollView
         horizontal
         pagingEnabled
-        scrollEnabled
-        decelerationRate={0}
+        decelerationRate={"normal"}
         scrollEventThrottle={16}
         snapToAlignment="center"
         showsHorizontalScrollIndicator={false}
+        onScroll={Animated.event([{ nativeEvent: { contentOffset: { x: scrollX } } }])}
       >
         {backgrounds.map((item, index) => (
           <Block key={`img-${index}`} center bottom style={{ width: SIZES.width }}>
@@ -59,19 +60,30 @@ export default function Welcome({ navigation }) {
   };
 
   const renderDots = () => {
+    const dotPosition = Animated.divide(scrollX, SIZES.width);
+
     return (
       <Block flex={false} row center middle margin={[21, 0, 34, 0]}>
-        {[...Array(3)].map((_, index) => (
-          <Block
-            key={`dot-${index}`}
-            flex={false}
-            gray
-            margin={[0, 5]}
-            radius={3}
-            style={{ width: 8, height: 8 }}
-            color={rgba(COLORS.gray, 0.2)}
-          />
-        ))}
+        {backgrounds.map((_, index) => {
+          const opacity = dotPosition.interpolate({
+            inputRange: [index - 1, index, index + 1],
+            outputRange: [0.3, 1, 0.3],
+            extrapolate: "clamp",
+          });
+
+          return (
+            <Block
+              key={`dot-${index}`}
+              flex={false}
+              gray
+              animated
+              margin={[0, 5]}
+              radius={100}
+              style={{ width: 8, height: 8, opacity }}
+              color={COLORS.gray}
+            />
+          );
+        })}
       </Block>
     );
   };
