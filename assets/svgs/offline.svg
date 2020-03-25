@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="180px" height="180px" viewBox="0 0 180 180" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <desc>Created with Lunacy</desc>
+  <defs>
+    <linearGradient x1="0.178127229" y1="0.8575035" x2="0.7680379" y2="-0.03457612" id="gradient_1">
+      <stop offset="0" stop-color="#6E7383" />
+      <stop offset="1" stop-color="#505557" />
+    </linearGradient>
+    <linearGradient x1="0.178127229" y1="0.8575035" x2="0.7680379" y2="-0.03457612" id="gradient_2">
+      <stop offset="0" stop-color="#C2CDED" />
+      <stop offset="1" stop-color="#A2A3A4" />
+    </linearGradient>
+  </defs>
+  <g id="Group-2">
+    <path d="M90 180C139.706 180 180 139.706 180 90C180 40.2944 139.706 0 90 0C40.2944 0 0 40.2944 0 90C0 139.706 40.2944 180 90 180Z" id="Oval-2" fill="url(#gradient_1)" stroke="none" />
+    <path d="M80 160C124.183 160 160 124.183 160 80C160 35.8172 124.183 0 80 0C35.8172 0 0 35.8172 0 80C0 124.183 35.8172 160 80 160Z" transform="translate(10 10)" id="Oval-2" fill="url(#gradient_2)" fill-opacity="0.4" stroke="none" />
+    <path d="M70 140C108.66 140 140 108.66 140 70C140 31.3401 108.66 0 70 0C31.3401 0 0 31.3401 0 70C0 108.66 31.3401 140 70 140Z" transform="translate(20 20)" id="Oval-2" fill="#FFFFFF" fill-opacity="0.2" stroke="none" />
+    <g id="_ionicons_svg_ios-arrow-round-forward" transform="translate(72 78)">
+      <path d="M22.95 0.457178C22.3125 1.07894 22.3125 2.11106 22.9375 2.74526L30.5375 10.3183L1.6125 10.3183C0.725 10.3183 0 11.0396 0 11.9349C0 12.8302 0.725 13.5515 1.6125 13.5515L30.525 13.5515L22.925 21.1245C22.3 21.7587 22.3125 22.7784 22.9375 23.4126C23.575 24.0344 24.5875 24.0344 25.225 23.4002L35.525 13.0789C35.6625 12.9297 35.775 12.7681 35.8625 12.5691C35.95 12.3701 35.9875 12.1587 35.9875 11.9473C35.9875 11.5245 35.825 11.1266 35.525 10.8157L25.225 0.494483C24.6125 -0.152149 23.5875 -0.164584 22.95 0.457178L22.95 0.457178Z" transform="translate(0 0.002925937)" id="Shape" fill="#FFFFFF" stroke="none" />
+    </g>
+  </g>
+</svg>

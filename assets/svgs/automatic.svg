@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <desc>Created with Lunacy</desc>
+  <defs>
+    <linearGradient x1="0.178127229" y1="0.8575035" x2="0.7680379" y2="-0.03457612" id="gradient_1">
+      <stop offset="0" stop-color="#2861FF" />
+      <stop offset="1" stop-color="#25B5FF" />
+    </linearGradient>
+  </defs>
+  <g id="automatic">
+    <path d="M10 20C15.5228 20 20 15.5228 20 10C20 4.47715 15.5228 0 10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20Z" id="Oval" fill="url(#gradient_1)" stroke="none" />
+    <g id="_ionicons_svg_md-color-wand" transform="translate(4 4)">
+      <path d="M4.8125 0L3.65625 0L3.65625 2.125L4.8125 2.125L4.8125 0ZM1.80312 0.796875L3.275 2.30625L2.475 3.125L1.00312 1.61875L1.80312 0.796875ZM7.55 1.61875L6.74688 0.796875L5.275 2.30625L6.075 3.125L7.55 1.61875ZM4.275 2.9125L3.1375 4.08125L10.8656 12L12 10.8312L4.275 2.9125ZM2.03125 3.5L0 3.5L0 4.65625L2.03125 4.65625L2.03125 3.5ZM8.59375 3.5L6.4375 3.5L6.4375 4.65625L8.59375 4.65625L8.59375 3.5ZM1.00312 6.68438L1.80312 7.50313L3.275 5.99688L2.475 5.175L1.00312 6.68438ZM3.65625 6.1875L4.8125 6.1875L4.8125 8.3125L3.65625 8.3125L3.65625 6.1875Z" id="Shape" fill="#FDFDFD" fill-rule="evenodd" stroke="none" />
+    </g>
+  </g>
+</svg>

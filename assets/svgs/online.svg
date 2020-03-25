@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="185px" height="185px" viewBox="0 0 185 185" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <desc>Created with Lunacy</desc>
+  <defs>
+    <linearGradient x1="0.178127229" y1="0.8575035" x2="0.7680379" y2="-0.03457612" id="gradient_1">
+      <stop offset="0" stop-color="#0055FF" />
+      <stop offset="1" stop-color="#0094FB" />
+    </linearGradient>
+    <linearGradient x1="0.178127229" y1="0.8575035" x2="0.7680379" y2="-0.03457612" id="gradient_2">
+      <stop offset="0" stop-color="#2861FF" />
+      <stop offset="1" stop-color="#25B5FF" />
+    </linearGradient>
+  </defs>
+  <g id="Group-2" transform="translate(2.410156 2.409973)">
+    <path d="M90 180C139.706 180 180 139.706 180 90C180 40.2944 139.706 0 90 0C40.2944 0 0 40.2944 0 90C0 139.706 40.2944 180 90 180Z" id="Oval-2" fill="url(#gradient_1)" stroke="none" />
+    <path d="M80 160C124.183 160 160 124.183 160 80C160 35.8172 124.183 0 80 0C35.8172 0 0 35.8172 0 80C0 124.183 35.8172 160 80 160Z" transform="translate(10 10)" id="Oval-2" fill="#000000" fill-opacity="0.3" stroke="none" />
+    <path d="M70 140C108.66 140 140 108.66 140 70C140 31.3401 108.66 0 70 0C31.3401 0 0 31.3401 0 70C0 108.66 31.3401 140 70 140Z" transform="translate(20 20)" id="Oval-2" fill="url(#gradient_2)" stroke="none" />
+    <path d="M0 15.3314L11.6629 26.5193L31.9204 0" transform="translate(74 77)" id="Stroke-92" fill="none" stroke="#FFFFFF" stroke-width="4.81994438" />
+  </g>
+</svg>
