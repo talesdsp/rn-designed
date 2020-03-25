@@ -1,4 +1,4 @@
-import { icons } from "./Images";
+import { icons } from "./Images/index";
 
 export const servers = [
   {
