@@ -3,7 +3,8 @@ import { StyleSheet } from "react-native"
 export const colors = {
   darkBg: "#222",
   lightBg: "#333",
-  darkHl: "#666",
+  darkHl: "#bbb",
+  lightHl: "#888",
   pink: "#ea3372",
   text: "#fff",
   textSec: "#aaa",
@@ -17,7 +18,7 @@ export const gs = StyleSheet.create({
     backgroundColor: colors.lightBg,
   },
   sectionTitle: {
-    fontWeight: "400",
+    fontWeight: "600",
     color: colors.text,
     fontSize: 15,
   },
@@ -41,5 +42,23 @@ export const gs = StyleSheet.create({
   title: {
     color: colors.text,
     fontSize: 30,
+  },
+  smallText: {
+    fontSize: 12,
+    fontWeight: "800",
+    color: colors.text,
+  },
+  absoluteFull: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+  },
+  button: {
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: colors.pink,
+    borderRadius: 100,
   },
 })
