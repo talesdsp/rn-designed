@@ -1,0 +1,5 @@
+export { default as About } from "./About"
+export { default as Header } from "./Header"
+export { default as Location } from "./Locations"
+export { default as Photos } from "./Photos"
+export { default as Stats } from "./Stats"
