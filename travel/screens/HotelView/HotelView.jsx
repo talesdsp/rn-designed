@@ -1,15 +1,16 @@
 import React from "react"
 import { StatusBar, StyleSheet, View } from "react-native"
+import { ScrollView } from "react-native-gesture-handler"
 import { colors } from "../../constants"
 import { About, Adress, Amenities, Bookmark, Extras, Header, Stats } from "./components/"
 
-const HotelView = () => {
+const HotelView = ({ navigation }) => {
   return (
-    <>
+    <ScrollView style={styles.container}>
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
 
-        <Header />
+        <Header navigation={navigation} />
 
         <View>
           <Bookmark />
@@ -20,7 +21,7 @@ const HotelView = () => {
           <Extras />
         </View>
       </View>
-    </>
+    </ScrollView>
   )
 }
 
