@@ -1,19 +1,17 @@
+import { NavigationContainer } from "@react-navigation/native"
+import { createStackNavigator } from "@react-navigation/stack"
 import React from "react"
-import { ScrollView, StyleSheet } from "react-native"
-import { colors } from "./constants"
 import HotelView from "./screens/HotelView/HotelView"
+import ProfileView from "./screens/ProfileView/ProfileView"
 
 export default function App() {
+  const Stack = createStackNavigator()
   return (
-    <ScrollView style={styles.container}>
-      <HotelView />
-    </ScrollView>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="hotel" screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="hotel" component={HotelView} />
+        <Stack.Screen name="profile" component={ProfileView} />
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.darkBg,
-  },
-})
