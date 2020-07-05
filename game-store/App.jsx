@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { NavigationContainer } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
 import React from "react"
+import GameScreen from "./screens/GameScreen"
 import HomeScreen from "./screens/HomeScreen"
 import LiveScreen from "./screens/LiveScreen"
 import ProfileScreen from "./screens/ProfileScreen"
@@ -51,8 +52,9 @@ export default function App() {
   return (
     <>
       <NavigationContainer>
-        <AppStack.Navigator headerMode="none">
+        <AppStack.Navigator mode="modal" headerMode="none">
           <AppStack.Screen name="App" component={TabNavScreen} />
+          <AppStack.Screen name="GameScreen" component={GameScreen} />
         </AppStack.Navigator>
       </NavigationContainer>
     </>
