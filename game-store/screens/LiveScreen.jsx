@@ -1,3 +1,4 @@
+import { Entypo } from "@expo/vector-icons"
 import React from "react"
 import { StatusBar } from "react-native"
 import styled from "styled-components/native"
@@ -50,7 +51,7 @@ const LiveScreen = () => {
       <LiveGames
         data={games}
         keyExtractor={(item) => String(item.id)}
-        renderItem={(item) => (
+        renderItem={({ item }) => (
           <LiveGameContainer>
             <LiveGame source={item.cover} />
             <LiveGameOver>
@@ -91,7 +92,7 @@ const SearchContainer = styled.View`
 `
 
 const Search = styled.TextInput`
-  padding: 16px 64px 16 32px;
+  padding: 16px 64px 16px 32px;
   color: #c6c6c6;
 `
 
@@ -99,7 +100,9 @@ const SearchIcon = styled.TouchableOpacity`
   position: absolute;
   right: 16px;
 `
-const SectionContainer = styled.View``
+const SectionContainer = styled.View`
+  margin: 0 16px;
+`
 
 const PopularGames = styled.ScrollView`
   margin: 16px 0 16px -16px;
