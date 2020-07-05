@@ -2,6 +2,7 @@ import { Entypo } from "@expo/vector-icons"
 import React from "react"
 import { StatusBar } from "react-native"
 import styled from "styled-components/native"
+import Text from "../components/Text"
 import games from "../game-data"
 
 const ProfileScreen = () => {
@@ -54,7 +55,7 @@ const ProfileScreen = () => {
             </Info>
 
             <Text heavy color="#819ee5">
-              ${Math.floor(Math.round() * 50) + 1}
+              ${Math.floor(Math.random() * 50) + 1}
             </Text>
           </Game>
         )}
@@ -75,7 +76,9 @@ const ProfileScreen = () => {
 
 export default ProfileScreen
 
-const Container = styled.SafeAreaView``
+const Container = styled.SafeAreaView`
+  background-color: #343434;
+`
 
 const AvatarContainer = styled.View`
   margin: 64px 0 16px 0;
