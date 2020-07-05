@@ -121,7 +121,7 @@ const LiveGamesTitle = styled.View`
   align-items: center;
 `
 
-const LiveGames = styled.Flatlist`
+const LiveGames = styled.FlatList`
   flex: 1;
   margin: 16px 16px 0 16px;
 `
