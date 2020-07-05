@@ -37,7 +37,7 @@ export default [
   {
     id: 3,
     title: "Unravel",
-    teaser: "Yarny, a character made from a single thead of yarn.",
+    teaser: "Yarny, a character made from a single thread of yarn.",
     description:
       "Unravel is a physics-based puzzle platformer. Yarny, a character made from a single thread of yarn.",
     rating: 2.4,
