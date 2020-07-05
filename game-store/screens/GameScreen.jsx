@@ -1,6 +1,6 @@
 import { Ionicons } from "@expo/vector-icons"
 import React from "react"
-import { StatusBar } from "react-native"
+import { Animated, StatusBar } from "react-native"
 import styled from "styled-components/native"
 import Text from "../components/Text"
 
@@ -16,7 +16,7 @@ const GameScreen = ({ route, navigation }) => {
           name="ios-star"
           size={16}
           style={{ marginRight: 5 }}
-          color={Math.floor(game.rating) >= s ? "#891ee5" : "434958"}
+          color={Math.floor(game.rating) >= s ? "#819ee5" : "#434958"}
         />
       )
     }
@@ -28,66 +28,75 @@ const GameScreen = ({ route, navigation }) => {
     <GameContainer>
       <StatusBar barStyle="light-content" />
 
-      <GameArtContainer>
-        <GameArt source={game.cover} />
-        <BackButton onPress={() => navigation.goBAck()}>
-          <Ionicons name="ios-close" size={40} color="#fff" />
-        </BackButton>
-      </GameArtContainer>
+      <Animated.ScrollView>
+        <GameArtContainer>
+          <GameArt source={game.cover} />
+          <BackButton onPress={() => navigation.goBAck()}>
+            <Ionicons name="ios-close" size={40} color="#fff" />
+          </BackButton>
+        </GameArtContainer>
 
-      <GameInfoContainer>
-        <GameThumbContainer>
-          <GameThumb source={game.cover} />
-        </GameThumbContainer>
+        <GameInfoContainer>
+          <GameThumbContainer>
+            <GameThumb source={game.cover} />
+          </GameThumbContainer>
 
-        <GameInfo>
-          <Text heavy medium>
-            {game.title}
+          <GameInfo>
+            <Text heavy medium>
+              {game.title}
+            </Text>
+            <Text color="#9a9a9a">{game.teaser}</Text>
+          </GameInfo>
+
+          <Download>
+            <Ionicons name="md-cloud-download" size={24} color="#fff" />
+          </Download>
+        </GameInfoContainer>
+
+        <GameStatsContainer>
+          {renderStars()}
+          <Text heavy color="#9a9a9a">
+            {game.rating}
           </Text>
-          <Text color="#9a9a9a">{game.teaser}</Text>
-        </GameInfo>
+          <Text bold color="#9a9a9a">
+            {game.category[0]}
+          </Text>
+          <Text bold color="#9a9a9a">
+            {game.age}
+          </Text>
+          <Text bold color="#9a9a9a">
+            Game of the day
+          </Text>
+        </GameStatsContainer>
 
-        <Download>
-          <Ionicons name="md-cloud-download" size={24} color="#fff" />
-        </Download>
-      </GameInfoContainer>
+        <ScreenshotsContainer>
+          <Animated.ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            snapToInterval={300}
+            snapToAlignment="center"
+            decelerationRate={"normal"}
+            scrollEventThrottle={16}
+          >
+            {game.screenshots.map((shot, index) => (
+              <ScreenshotContainer key={index} first={index == 0 ? true : false}>
+                <Screenshot source={shot} />
+              </ScreenshotContainer>
+            ))}
+          </Animated.ScrollView>
+        </ScreenshotsContainer>
 
-      <GameStatsContainer>
-        {renderStars()}
-        <Text heavy color="9a9a9a">
-          {game.rating}
-        </Text>
-        <Text bold color="9a9a9a">
-          {game.category[0]}
-        </Text>
-        <Text bold color="9a9a9a">
-          {game.age}
-        </Text>
-        <Text bold color="9a9a9a">
-          Game of the day
-        </Text>
-      </GameStatsContainer>
-
-      <ScreenshotsContainer>
-        <Screenshots horizontal={true} showsHorizontalScrollIndicator={false}>
-          {game.screenshots.map((shot, index) => (
-            <ScreenshotContainer key={index}>
-              <Screenshot source={shot} />
-            </ScreenshotContainer>
-          ))}
-        </Screenshots>
-      </ScreenshotsContainer>
-
-      <Description medium color="#9a9a9a">
-        {game.description}
-      </Description>
+        <Description medium color="#9a9a9a">
+          {game.description}
+        </Description>
+      </Animated.ScrollView>
     </GameContainer>
   )
 }
 
 export default GameScreen
 
-const GameContainer = styled.View`
+const GameContainer = styled.SafeAreaView`
   background-color: #343434;
 `
 const GameArtContainer = styled.View`
@@ -119,10 +128,12 @@ const GameInfo = styled.View`
 `
 
 const GameThumbContainer = styled.View`
+  border-radius: 12px;
   shadow-color: #000;
-  shadow-offset: 1px 1px;
-  shadow-opacity: 0.5;
-  shadow-radius: 2px;
+  shadow-offset: 0px 5px;
+  shadow-radius: 8px;
+  shadow-opacity: 0.1;
+  elevation: 5;
 `
 
 const GameThumb = styled.Image`
@@ -131,7 +142,7 @@ const GameThumb = styled.Image`
   border-radius: 16px;
 `
 const Download = styled.View`
-  background-color: #819335;
+  background-color: #819ee5;
   width: 40px;
   height: 40px;
   border-radius: 20px;
@@ -149,18 +160,19 @@ const Stars = styled.View`
   flex-direction: row;
 `
 
-const ScreenshotsContainer = styled.View`
-  margin: 20px;
-`
-
-const Screenshots = styled.ScrollView``
+const ScreenshotsContainer = styled.View``
 
 const ScreenshotContainer = styled.View`
-  padding: 20px;
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  margin-left: ${(props) => (props.first ? 20 : 0)}px;
   shadow-color: #000;
-  shadow-offset: 1px 1px;
-  shadow-opacity: 0.5;
-  shadow-radius: 5px;
+  shadow-offset: 0px 5px;
+  shadow-radius: 8px;
+  shadow-opacity: 0.1;
+  elevation: 5;
+  border-radius: 12px;
 `
 
 const Screenshot = styled.Image`
@@ -170,6 +182,6 @@ const Screenshot = styled.Image`
 `
 
 const Description = styled(Text)`
-  margin: 0 16px;
+  margin: 0 16px 16px;
   line-height: 22px;
 `
