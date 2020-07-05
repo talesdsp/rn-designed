@@ -1,22 +1,31 @@
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import { StatusBar } from "react-native"
 import styled from "styled-components/native"
 import categoryList from "../categories"
 import Text from "../components/Text"
 import games from "../game-data"
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const [selected, setSelected] = useState("All")
 
-  const changeCategory = (category) => () => setSelected(category)
+  const gamesRef = useRef()
+
+  const changeCategory = (category) => () => {
+    gamesRef.current.scrollToOffset({ x: 0, y: 0, animated: true })
+    setSelected(category)
+  }
+
+  const seeGame = (game) => () => navigation.navigate("GameScreen", { game })
 
   const GameItem = (game) => (
-    <Game>
+    <Game onPress={seeGame(game)}>
       <GameCover source={game.cover} />
       <GameInfo backgroundColor={game.backgroundColor}>
         <GameImage source={game.cover} />
         <GameTitle>
-          <Text>{game.title}</Text>
+          <Text medium bold>
+            {game.title}
+          </Text>
           <Text>{game.teaser}</Text>
         </GameTitle>
       </GameInfo>
@@ -50,9 +59,10 @@ const HomeScreen = () => {
       </Categories>
 
       <Games
-        data={games}
+        data={games.filter((game) => game.category.includes(selected) || selected === "All")}
         keyExtractor={(game) => String(game.id)}
         renderItem={({ item }) => GameItem(item)}
+        ref={gamesRef}
       />
     </Container>
   )
@@ -106,11 +116,7 @@ const Games = styled.FlatList`
 `
 
 const Game = styled.TouchableOpacity`
-  margin: auto;
   margin-bottom: 32px;
-  width: 85%;
-  border-radius: 12px;
-  overflow: hidden;
 `
 
 const GameCover = styled.Image`
@@ -119,12 +125,19 @@ const GameCover = styled.Image`
 
 const GameInfo = styled.View`
   padding: 20px;
+  margin: -50px auto 0;
+  width: 90%;
+  border-radius: 12px;
+  flex-direction: row;
+  align-items: center;
 `
 
 const GameImage = styled.Image`
   width: 50px;
-  height: 40px;
+  height: 50px;
   border-radius: 8px;
 `
 
-const GameTitle = styled.View``
+const GameTitle = styled.View`
+  margin: 0 24px;
+`
